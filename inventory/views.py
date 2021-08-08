@@ -138,21 +138,29 @@ def location_add(request):
 
 
 @login_required
-def location_update(request, id):
+def location_detail(request, id):
 	location = get_object_or_404(Location, id=id)
-	form = ItemForm(request.POST or None, instance=location)
-	if form.is_valid():
-		form.save()
-		return HttpResponseRedirect('/inventory/locations/')
+	items = None
+	try:
+		items = Item.objects.filter(location_id=location.id)
+	except Item.DoesNotExist:
+		pass
 
 	return render(
 		request,
-		'inventory/location_form.html',
+		'inventory/location_detail.html',
 		{
-			'form': form,
 			'location': location,
+			'item_list': items,
 		}
 	)
+
+
+@login_required
+def location_delete(request, id):
+	location = get_object_or_404(Location, id=id)
+	location.delete()
+	return HttpResponseRedirect('/inventory/locations/')
 
 
 class InventoryView(LoginRequiredMixin, ListView):
