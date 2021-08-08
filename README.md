@@ -20,4 +20,4 @@ recreating the ERD.
 
 ## Data Model
 
-![](https://drop.jrgnsn.net/KJAt.png)
+![](https://drop.jrgnsn.net/J2yl.png)
