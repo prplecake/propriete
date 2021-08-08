@@ -108,8 +108,9 @@ def item_update(request, id):
 
 @login_required
 def item_delete(request, id):
-	print("Item delete hit")
-	return
+	item = get_object_or_404(Item, id=id)
+	item.delete()
+	return HttpResponseRedirect('/inventory/')
 
 
 class InventoryView(LoginRequiredMixin, ListView):
