@@ -22,7 +22,7 @@
 		<td>{{item.description}}</td>
 		<td>{{item.make_model}}</td>
 		<td>{{item.serial_number}}</td>
-		<td>{{item.purchase_date}}</td>
+		<td>{% if item.purchase_date %}{{item.purchase_date}}{% endif %}</td>
 		<td>{{item.purchase_location}}</td>
 		<td>{% if item.purchase_price %}${{item.purchase_price}}{% endif %}</td>
 		<td>{% if item.current_value %}${{item.current_value}}{% endif %}</td>
