@@ -1,0 +1,12 @@
+th {
+	text-align: left;
+	vertical-align: top;
+}
+
+td > p {
+	margin: 0;
+}
+
+.inventory_list td {
+	vertical-align: top;
+}

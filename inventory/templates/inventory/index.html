@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>Welcome to propriete.</p>
+
+<p><a href="/inventory/">View Inventory</a></p>
+
+<h2>Owner Information</h2>
+<table>
+	<tr>
+		<th>Name</th>
+		<td>{{ownerinfo.name}}</td>
+	</tr>
+	<tr>
+		<th>Address</th>
+		<td>{{ownerinfo.address|linebreaks}}</td>
+	</tr>
+	<tr>
+		<th>Phone Number</th>
+		<td>{{ownerinfo.phone}}</td>
+	</tr>
+</table>
+
+<h2>Policy Information</h2>
+<table>
+	<tr>
+		<th>Policy Number:</th>
+		<td>{{policyinfo.policy_number}}</td>
+	</tr>
+	<tr>
+		<th>Agent Name:</th>
+		<td>{{policyinfo.agent_name}}</td>
+
+		<th>Company Name:</th>
+		<td>{{policyinfo.company_name}}</td>
+	</tr>
+	<tr>
+		<th>Agent Phone:</th>
+		<td>{{policyinfo.agent_phone}}</td>
+		<th>Company Claims Phone:</th>
+		<td>{{policyinfo.company_claims_phone}}</td>
+	</tr>
+	<tr>
+		<th>Agent Email:</th>
+		<td><a href="mailto:{{policyinfo.agent_email}}">{{policyinfo.agent_email}}</a></td>
+
+		<th>Company Website:</th>
+		<td><a href="{{policyinfo.company_website}}">{{policyinfo.company_website}}</a></td>
+	</tr>
+</table>
+{% endblock %}
