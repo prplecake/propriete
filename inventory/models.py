@@ -3,6 +3,8 @@ from django.utils import timezone
 from django.utils.text import slugify
 from phone_field import PhoneField
 
+from .utils.urlutils import add_url_protocol
+
 
 class OwnerInfo(models.Model):
 	name = models.CharField(max_length=200)
@@ -32,6 +34,10 @@ class PolicyInfo(models.Model):
 
 	def __str__(self):
 		return self.policy_number
+
+	def save(self, *args, **kwargs):
+		self.company_website = add_url_protocol(self.company_website)
+		super().save(*args, **kwargs)
 
 
 class Tag(models.Model):
