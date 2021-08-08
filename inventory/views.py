@@ -9,6 +9,7 @@ from .forms import (
 	PolicyInfoForm,
 	ItemForm,
 	LocationForm,
+	ClothingForm,
 )
 
 from .models import (
@@ -16,6 +17,7 @@ from .models import (
 	PolicyInfo,
 	Item,
 	Location,
+	Clothing,
 )
 
 
@@ -126,6 +128,7 @@ def location_list(request):
 		}
 	)
 
+
 @login_required
 def location_add(request):
 	if request.method == 'POST':
@@ -165,3 +168,44 @@ def location_delete(request, id):
 
 class InventoryView(LoginRequiredMixin, ListView):
 	model = Item
+
+
+@login_required
+def clothing_list(request):
+	clothing = Clothing.objects.order_by('description')
+	return render(
+		request,
+		'inventory/clothing_list.html',
+		{
+			'clothing_list': clothing,
+		}
+	)
+
+
+@login_required
+def clothing_add(request):
+	if request.method == 'POST':
+		form = ClothingForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/inventory/clothing/')
+	form = ClothingForm()
+	return render(request, 'inventory/clothing_form.html', {'form': form})
+
+
+@login_required
+def clothing_update(request, id):
+	clothing = get_object_or_404(Clothing, id=id)
+	form = ClothingForm(request.POST or None, instance=clothing)
+	if form.is_valid():
+		form.save()
+		return HttpResponseRedirect('/inventory/clothing/')
+
+	return render(
+		request,
+		'inventory/clothing_form.html',
+		{
+			'form': form,
+			'clothing': clothing,
+		}
+	)

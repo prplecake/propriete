@@ -20,4 +20,8 @@ urlpatterns = [
 	path('inventory/locations/add/', views.location_add, name='location_add'),
 	path('inventory/locations/<int:id>/', views.location_detail, name='location_detail'),
 	path('inventory/locations/<int:id>/delete/', views.location_delete, name='location_delete'),
+
+	path('inventory/clothing/', views.clothing_list, name='clothing_list'),
+	path('inventory/clothing/add/', views.clothing_add, name='clothing_add'),
+	path('inventory/clothing/<int:id>/edit/', views.clothing_update, name='clothing_update')
 ]
