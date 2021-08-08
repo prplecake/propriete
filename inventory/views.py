@@ -45,7 +45,7 @@ def owner_info_create(request):
 			form.save()
 			return HttpResponseRedirect('/')
 	form = OwnerInfoForm()
-	return render(request, 'inventory/owner_info_form.html', {'form': form})
+	return render(request, 'inventory/generic_form.html', {'form': form})
 
 
 @login_required
@@ -56,7 +56,7 @@ def owner_info_update(request):
 		form.save()
 		return HttpResponseRedirect('/')
 
-	return render(request, 'inventory/owner_info_form.html', {'form': form})
+	return render(request, 'inventory/generic_form.html', {'form': form})
 
 
 @login_required
@@ -67,7 +67,7 @@ def policy_info_create(request):
 			form.save()
 			return HttpResponseRedirect('/')
 	form = PolicyInfoForm()
-	return render(request, 'inventory/policy_info_form.html', {'form': form})
+	return render(request, 'inventory/generic_form.html', {'form': form})
 
 
 @login_required
@@ -78,7 +78,7 @@ def policy_info_update(request):
 		form.save()
 		return HttpResponseRedirect('/')
 
-	return render(request, 'inventory/policy_info_form.html', {'form': form})
+	return render(request, 'inventory/generic_form.html', {'form': form})
 
 
 @login_required
