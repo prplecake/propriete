@@ -7,7 +7,16 @@ td > p {
 	margin: 0;
 }
 
+table {
+	border-spacing: 0;
+}
+
+.inventory_list th {
+	border-bottom: 2px solid black;
+}
+
 .inventory_list td {
+	border-bottom: 1px solid black;
 	vertical-align: top;
 }
 
