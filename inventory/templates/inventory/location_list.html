@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'inventory:location_add' %}">Add Location</a>
+{% if locations %}
+<ul>
+{% for location in locations %}
+	<li>{{location.name}}</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>There are no locations!</p>
+{% endif %}
+{% endblock %}

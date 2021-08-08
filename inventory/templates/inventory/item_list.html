@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="{% url 'inventory:item_add' %}">Add Item</a>
+<a href="{% url 'inventory:item_add' %}">Add Item</a> | <a href="{% url 'inventory:location_list' %}">Locations</a>
 {% if item_list %}
 <table class="inventory_list">
 	<tr>

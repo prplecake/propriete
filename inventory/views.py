@@ -8,12 +8,14 @@ from .forms import (
 	OwnerInfoForm,
 	PolicyInfoForm,
 	ItemForm,
+	LocationForm,
 )
 
 from .models import (
 	OwnerInfo,
 	PolicyInfo,
-	Item
+	Item,
+	Location,
 )
 
 
@@ -111,6 +113,46 @@ def item_delete(request, id):
 	item = get_object_or_404(Item, id=id)
 	item.delete()
 	return HttpResponseRedirect('/inventory/')
+
+
+@login_required
+def location_list(request):
+	locations = Location.objects.order_by('name')
+	return render(
+		request,
+		'inventory/location_list.html',
+		{
+			'locations': locations,
+		}
+	)
+
+@login_required
+def location_add(request):
+	if request.method == 'POST':
+		form = LocationForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/inventory/locations/')
+	form = LocationForm()
+	return render(request, 'inventory/location_form.html', {'form': form})
+
+
+@login_required
+def location_update(request, id):
+	location = get_object_or_404(Location, id=id)
+	form = ItemForm(request.POST or None, instance=location)
+	if form.is_valid():
+		form.save()
+		return HttpResponseRedirect('/inventory/locations/')
+
+	return render(
+		request,
+		'inventory/location_form.html',
+		{
+			'form': form,
+			'location': location,
+		}
+	)
 
 
 class InventoryView(LoginRequiredMixin, ListView):
