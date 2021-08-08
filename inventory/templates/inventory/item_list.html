@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="/inventory/item/add">Add Item</a>
+<a href="{% url 'inventory:item_add' %}">Add Item</a>
 {% if item_list %}
 <table class="inventory_list">
 	<tr>
@@ -28,7 +28,7 @@
 		<td>{% if item.current_value %}${{item.current_value}}{% endif %}</td>
 		<td>{{item.photo}}</td>
 		<td>{{item.notes|linebreaks}}</td>
-		<td><a href="item/{{item.id}}/edit">Edit</a></td>
+		<td><a href="{% url 'inventory:item_update' item.id %}">Edit</a></td>
 	</tr>
 	{% endfor %}
 </table>

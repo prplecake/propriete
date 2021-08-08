@@ -85,7 +85,7 @@ def item_add(request):
 			form.save()
 			return HttpResponseRedirect('/inventory/')
 	form = ItemForm()
-	return render(request, 'inventory/form.html', {'form': form})
+	return render(request, 'inventory/item_form.html', {'form': form})
 
 
 @login_required
@@ -96,7 +96,20 @@ def item_update(request, id):
 		form.save()
 		return HttpResponseRedirect('/inventory/')
 
-	return render(request, 'inventory/form.html', {'form': form})
+	return render(
+		request,
+		'inventory/item_form.html',
+		{
+			'form': form,
+			'item': item,
+		}
+	)
+
+
+@login_required
+def item_delete(request, id):
+	print("Item delete hit")
+	return
 
 
 class InventoryView(LoginRequiredMixin, ListView):
