@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load humanize %}
 
 {% block content %}
 Viewing Location: {{location}}
@@ -27,8 +28,8 @@ Viewing Location: {{location}}
 			<td>{{item.serial_number}}</td>
 			<td>{% if item.purchase_date %}{{item.purchase_date}}{% endif %}</td>
 			<td>{{item.purchase_location}}</td>
-			<td>{% if item.purchase_price %}${{item.purchase_price}}{% endif %}</td>
-			<td>{% if item.current_value %}${{item.current_value}}{% endif %}</td>
+			<td>{% if item.purchase_price %}${{item.purchase_price|intcomma}}{% endif %}</td>
+			<td>{% if item.current_value %}${{item.current_value|intcomma}}{% endif %}</td>
 			<td>{{item.photo}}</td>
 			<td>{{item.notes|linebreaks}}</td>
 			<td><a href="{% url 'inventory:item_update' item.id %}">Edit</a></td>
