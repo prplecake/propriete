@@ -7,6 +7,7 @@ from django.views.generic import View, DetailView, ListView, TemplateView
 from .forms import (
 	OwnerInfoForm,
 	PolicyInfoForm,
+	ItemForm,
 )
 
 from .models import (
@@ -74,6 +75,28 @@ def policy_info_update(request):
 		return HttpResponseRedirect('/')
 
 	return render(request, 'inventory/policy_info_form.html', {'form': form})
+
+
+@login_required
+def item_add(request):
+	if request.method == 'POST':
+		form = ItemForm(request.POST)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/inventory/')
+	form = ItemForm()
+	return render(request, 'inventory/form.html', {'form': form})
+
+
+@login_required
+def item_update(request, id):
+	item = get_object_or_404(Item, id=id)
+	form = ItemForm(request.POST or None, instance=item)
+	if form.is_valid():
+		form.save()
+		return HttpResponseRedirect('/inventory/')
+
+	return render(request, 'inventory/form.html', {'form': form})
 
 
 class InventoryView(LoginRequiredMixin, ListView):

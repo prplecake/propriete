@@ -76,7 +76,7 @@ class Item(models.Model):
 	description = models.CharField(max_length=500)
 	notes = models.TextField(blank=True)
 	serial_number = models.CharField(max_length=200, blank=True)
-	date_purchased = models.DateField(null=True, blank=True)
+	purchase_date = models.DateField(null=True, blank=True)
 	created_at = models.DateTimeField(default=timezone.now)
 	photo = models.BooleanField()
 	purchase_location = models.CharField(max_length=200, blank=True)
