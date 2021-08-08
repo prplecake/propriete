@@ -8,10 +8,11 @@ A home inventory tracking system.
 
 * pipenv
 
-
-    pipenv install
-    pipenv run python manage.py migrate
-    pipenv run python manage.py runserver
+```
+pipenv install
+pipenv run python manage.py migrate
+pipenv run python manage.py runserver
+```
 
 **Note:** The development requirements are only necessary when
 recreating the ERD.
