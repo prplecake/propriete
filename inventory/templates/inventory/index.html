@@ -6,6 +6,7 @@
 <p><a href="/inventory/">View Inventory</a></p>
 
 <h2>Owner Information</h2>
+{% if ownerinfo %}
 <table>
 	<tr>
 		<th>Name</th>
@@ -20,8 +21,12 @@
 		<td>{{ownerinfo.phone}}</td>
 	</tr>
 </table>
+{% else %}
+<a href="">Set up Owner Information</a>
+{% endif %}
 
 <h2>Policy Information</h2>
+{% if policyinfo %}
 <table>
 	<tr>
 		<th>Policy Number:</th>
@@ -48,4 +53,7 @@
 		<td><a href="{{policyinfo.company_website}}">{{policyinfo.company_website}}</a></td>
 	</tr>
 </table>
+{% else %}
+<a href="">Set up Policy Information</a>
+{% endif %}
 {% endblock %}
