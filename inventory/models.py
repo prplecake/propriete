@@ -79,6 +79,9 @@ class Item(models.Model):
 	def __str__(self):
 		return self.description
 
+	class Meta:
+		ordering = ['location', 'description']
+
 
 class Clothing(models.Model):
 	description = models.CharField(max_length=500)
