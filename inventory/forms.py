@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, TextInput
 
 from .models import (
 	OwnerInfo,
@@ -17,6 +17,12 @@ class OwnerInfoForm(ModelForm):
 			'address',
 			'phone',
 		)
+		widgets = {
+			'name': TextInput(
+				attrs={
+					'autofocus': True
+				})
+		}
 
 
 class PolicyInfoForm(ModelForm):
@@ -31,6 +37,12 @@ class PolicyInfoForm(ModelForm):
 			'company_claims_phone',
 			'company_website',
 		)
+		widgets = {
+			'policy_number': TextInput(
+				attrs={
+					'autofocus': True
+				})
+		}
 
 
 class ItemForm(ModelForm):
@@ -48,6 +60,12 @@ class ItemForm(ModelForm):
 			'photo',
 			'notes',
 		)
+		widgets = {
+			'description': TextInput(
+				attrs={
+					'autofocus': True
+				})
+		}
 
 
 class LocationForm(ModelForm):
@@ -56,6 +74,12 @@ class LocationForm(ModelForm):
 		fields = (
 			'name',
 		)
+		widgets = {
+			'name': TextInput(
+				attrs={
+					'autofocus': True
+				})
+		}
 
 
 class ClothingForm(ModelForm):
@@ -67,3 +91,9 @@ class ClothingForm(ModelForm):
 			'quantity',
 			'notes',
 		)
+		widgets = {
+			'description': TextInput(
+				attrs={
+					'autofocus': True
+				})
+		}
