@@ -4,6 +4,7 @@
 <a href="{% url 'inventory:item_add' %}">Add Item</a> | <a href="{% url 'inventory:location_list' %}">Locations</a> | <a href="{% url 'inventory:clothing_list' %}">Clothing</a>
 {% if item_list %}
 <table class="inventory_list">
+	<thead>
 	<tr>
 		<th>Location</th>
 		<th>Description</th>
@@ -16,6 +17,8 @@
 		<th>Photo?</th>
 		<th>Notes</th>
 	</tr>
+</thead>
+<tbody>
 	{% for item in item_list %}
 	<tr>
 		<td>{% if item.location is not None %}{{item.location}}{% endif %}</td>
@@ -31,6 +34,7 @@
 		<td><a href="{% url 'inventory:item_update' item.id %}">Edit</a></td>
 	</tr>
 	{% endfor %}
+</tbody>
 </table>
 {% else %}
 <p>There are no items!</p>
