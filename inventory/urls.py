@@ -18,5 +18,6 @@ urlpatterns = [
 
 	path('inventory/locations/', views.location_list, name='location_list'),
 	path('inventory/locations/add/', views.location_add, name='location_add'),
-	path('inventory/locatins/<int:id>/edit/', views.location_update, name='location_update'),
+	path('inventory/locations/<int:id>/', views.location_detail, name='location_detail'),
+	path('inventory/locations/<int:id>/delete/', views.location_delete, name='location_delete'),
 ]

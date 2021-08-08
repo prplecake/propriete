@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a href="{% url 'inventory:location_add' %}">Add Location</a>
+<a href="{% url 'inventory:location_add' %}">Add Location</a> | <a href="{% url 'inventory:inventory' %}">Go Back</a>
 {% if locations %}
 <ul>
 {% for location in locations %}
-	<li>{{location.name}}</li>
+	<li><a href="{% url 'inventory:location_detail' location.id %}">{{location.name}}</a> - <a class="danger" href="{% url 'inventory:location_delete' location.id %}">Delete</a></li>
 {% endfor %}
 </ul>
 {% else %}
