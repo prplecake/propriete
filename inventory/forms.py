@@ -4,6 +4,7 @@ from .models import (
 	OwnerInfo,
 	PolicyInfo,
 	Item,
+	Location,
 )
 
 
@@ -45,4 +46,12 @@ class ItemForm(ModelForm):
 			'current_value',
 			'photo',
 			'notes',
+		)
+
+
+class LocationForm(ModelForm):
+	class Meta:
+		model = Location
+		fields = (
+			'name',
 		)
