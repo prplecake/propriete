@@ -5,6 +5,7 @@ from .models import (
 	PolicyInfo,
 	Item,
 	Location,
+	Clothing,
 )
 
 
@@ -54,4 +55,15 @@ class LocationForm(ModelForm):
 		model = Location
 		fields = (
 			'name',
+		)
+
+
+class ClothingForm(ModelForm):
+	class Meta:
+		model = Clothing
+		fields = (
+			'description',
+			'brand',
+			'quantity',
+			'notes',
 		)

@@ -92,12 +92,13 @@ class Item(models.Model):
 
 
 class Clothing(models.Model):
-	name = models.CharField(max_length=200)
 	description = models.CharField(max_length=500)
+	brand = models.CharField(max_length=200, blank=True)
 	quantity = models.IntegerField()
+	notes = models.TextField(blank=True)
 
 	class Meta:
 		verbose_name_plural = "clothing"
 
 	def __str__(self):
-		return self.name
+		return self.description
