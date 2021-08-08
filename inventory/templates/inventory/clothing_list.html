@@ -5,24 +5,24 @@
 {% if clothing_list %}
 <table class="clothing_list">
 	<thead>
-	<tr>
-		<th>Description</th>
-		<th>Quantity</th>
-		<th>Brand</th>
-		<th>Notes</th>
-	</tr>
-</thead>
-<tbody>
-	{% for item in clothing_list %}
-	<tr>
-		<td>{{item.description}}</td>
-		<td>{{item.quantity}}</td>
-		<td>{{item.brand}}</td>
-		<td>{{item.notes|linebreaks}}</td>
-		<td><a href="{% url 'inventory:clothing_update' item.id %}">Edit</a></td>
-	</tr>
-	{% endfor %}
-</tbody>
+		<tr>
+			<th>Description</th>
+			<th>Quantity</th>
+			<th>Brand</th>
+			<th>Notes</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for item in clothing_list %}
+		<tr>
+			<td>{{item.description}}</td>
+			<td>{{item.quantity}}</td>
+			<td>{{item.brand}}</td>
+			<td>{{item.notes|linebreaks}}</td>
+			<td><a href="{% url 'inventory:clothing_update' item.id %}">Edit</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
 </table>
 {% else %}
 <p>There are no items!</p>
