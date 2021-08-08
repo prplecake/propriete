@@ -10,3 +10,7 @@ td > p {
 .inventory_list td {
 	vertical-align: top;
 }
+
+.danger {
+	color: red;
+}
