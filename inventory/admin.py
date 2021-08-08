@@ -4,7 +4,6 @@ from .models import (
 	OwnerInfo,
 	PolicyInfo,
 	Tag,
-	Category,
 	Item,
 	Clothing,
 	Location,
@@ -18,7 +17,6 @@ class PolicyAdmin(admin.ModelAdmin):
 admin.site.register(OwnerInfo)
 admin.site.register(PolicyInfo, PolicyAdmin)
 admin.site.register(Tag)
-admin.site.register(Category)
 admin.site.register(Item)
 admin.site.register(Clothing)
 admin.site.register(Location)
