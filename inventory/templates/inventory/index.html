@@ -21,8 +21,9 @@
 		<td>{{ownerinfo.phone}}</td>
 	</tr>
 </table>
+<a href="/inventory/owner_info_update/">Update Owner Information</a>
 {% else %}
-<a href="">Set up Owner Information</a>
+<a href="/inventory/owner_info_create/">Set up Owner Information</a>
 {% endif %}
 
 <h2>Policy Information</h2>
@@ -53,7 +54,8 @@
 		<td><a href="{{policyinfo.company_website}}">{{policyinfo.company_website}}</a></td>
 	</tr>
 </table>
+<a href="/inventory/policy_info_update/">Update Policy Information</a>
 {% else %}
-<a href="">Set up Policy Information</a>
+<a href="/inventory/policy_info_create/">Set up Policy Information</a>
 {% endif %}
 {% endblock %}
