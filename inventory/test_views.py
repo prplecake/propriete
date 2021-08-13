@@ -109,8 +109,7 @@ class ItemListViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -154,8 +153,7 @@ class OwnerInfoCreateViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/owner_info_create/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -198,8 +196,7 @@ class PolicyInfoCreateViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/policy_info_create/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -242,8 +239,7 @@ class OwnerInfoUpdateViewTestNoData(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/owner_info_update/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -279,8 +275,7 @@ class PolicyInfoUpdateViewTestNoData(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/policy_info_update/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -322,8 +317,7 @@ class OwnerInfoUpdateViewTestWithData(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/owner_info_update/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -383,8 +377,7 @@ class PolicyInfoUpdateViewTestWithData(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/policy_info_update/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -426,8 +419,7 @@ class ItemAddViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/item/add/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -471,8 +463,7 @@ class ItemUpdateViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/item/1/edit/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -520,8 +511,7 @@ class ItemDeleteViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/item/1/delete/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -582,8 +572,7 @@ class LocationListViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/locations/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -626,8 +615,7 @@ class LocationAddViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/item/add/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -683,8 +671,7 @@ class LocationDetailViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/locations/1/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -738,8 +725,7 @@ class LocationDeleteViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/locations/1/delete/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -801,8 +787,7 @@ class ClothingListViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/clothing/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -845,8 +830,7 @@ class ClothingAddViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/clothing/add/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -890,8 +874,7 @@ class ClothingUpdateViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/clothing/1/edit/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
@@ -939,8 +922,7 @@ class ClothingDeleteViewTest(TestCase):
 
 	def test_view_url_unauthenticated(self):
 		url = '/inventory/clothing/1/delete/'
-		c = Client()
-		response = c.get(url)
+		response = self.client.get(url)
 		self.assertRedirects(
 			response,
 			expected_url=f'/accounts/login/?next={url}',
