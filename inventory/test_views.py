@@ -179,6 +179,23 @@ class OwnerInfoCreateViewTest(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'inventory/generic_form.html')
 
+	def test_valid_post(self):
+		response = self.authenticated_client.post(
+			reverse('inventory:owner_info_create'),
+			{
+				'name': 'Test McTesterson',
+				'phone_0': '(555) 555-8008',
+				'address': 'address',
+			}
+		)
+		self.assertRedirects(
+			response,
+			expected_url=reverse('inventory:index'),
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
+
 
 class PolicyInfoCreateViewTest(TestCase):
 	@classmethod
@@ -221,6 +238,27 @@ class PolicyInfoCreateViewTest(TestCase):
 		)
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'inventory/generic_form.html')
+
+	def test_valid_post(self):
+		response = self.authenticated_client.post(
+			reverse('inventory:policy_info_create'),
+			{
+				'policy_number': '12-ER-41798-P',
+				'agent_name': 'Mx. Insurance',
+				'agent_phone_0': '(555) 237-3119',
+				'agent_email': 'mxinsurance@insuran.ce',
+				'company_name': 'MxInsurance',
+				'company_claims_phone_0': '(800) 111-0000',
+				'company_website': 'http://insuran.ce',
+			}
+		)
+		self.assertRedirects(
+			response,
+			expected_url=reverse('inventory:index'),
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 
 class OwnerInfoUpdateViewTestNoData(TestCase):
@@ -343,6 +381,23 @@ class OwnerInfoUpdateViewTestWithData(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'inventory/generic_form.html')
 
+	def test_valid_post(self):
+		response = self.authenticated_client.post(
+			reverse('inventory:owner_info_update'),
+			{
+				'name': 'Test McTesterson',
+				'phone_0': '(555) 555-8008',
+				'address': 'address',
+			}
+		)
+		self.assertRedirects(
+			response,
+			expected_url=reverse('inventory:index'),
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
+
 
 class PolicyInfoUpdateViewTestWithData(TestCase):
 	@classmethod
@@ -403,6 +458,27 @@ class PolicyInfoUpdateViewTestWithData(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'inventory/generic_form.html')
 
+	def test_valid_post(self):
+		response = self.authenticated_client.post(
+			reverse('inventory:policy_info_update'),
+			{
+				'policy_number': '12-ER-41798-P',
+				'agent_name': 'Mx. Insurance',
+				'agent_phone_0': '(555) 237-3119',
+				'agent_email': 'mxinsurance@insuran.ce',
+				'company_name': 'MxInsurance',
+				'company_claims_phone_0': '(800) 111-0000',
+				'company_website': 'http://insuran.ce',
+			}
+		)
+		self.assertRedirects(
+			response,
+			expected_url=reverse('inventory:index'),
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
+
 
 class ItemAddViewTest(TestCase):
 	@classmethod
@@ -440,6 +516,22 @@ class ItemAddViewTest(TestCase):
 		response = self.authenticated_client.get(reverse('inventory:item_add'))
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'inventory/item_form.html')
+
+	def test_valid_post(self):
+		response = self.authenticated_client.post(
+			reverse('inventory:item_add'),
+			{
+				'description': 'my item',
+				'photo': False,
+			}
+		)
+		self.assertRedirects(
+			response,
+			expected_url=reverse('inventory:inventory'),
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 
 class ItemUpdateViewTest(TestCase):
@@ -488,6 +580,21 @@ class ItemUpdateViewTest(TestCase):
 		)
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'inventory/item_form.html')
+
+	def test_valid_post(self):
+		response = self.authenticated_client.post(
+			reverse('inventory:item_update', args=[1]),
+			{
+				'description': 'new item description',
+			}
+		)
+		self.assertRedirects(
+			response,
+			expected_url=reverse('inventory:inventory'),
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 
 class ItemDeleteViewTest(TestCase):
@@ -636,6 +743,19 @@ class LocationAddViewTest(TestCase):
 		response = self.authenticated_client.get(reverse('inventory:location_add'))
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'inventory/location_form.html')
+
+	def test_valid_post(self):
+		response = self.authenticated_client.post(
+			reverse('inventory:location_add'),
+			{'name': 'location'}
+		)
+		self.assertRedirects(
+			response,
+			expected_url=reverse('inventory:location_list'),
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 
 class LocationDetailViewTest(TestCase):
@@ -852,6 +972,22 @@ class ClothingAddViewTest(TestCase):
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'inventory/clothing_form.html')
 
+	def test_valid_post(self):
+		response = self.authenticated_client.post(
+			reverse('inventory:clothing_add'),
+			{
+				'description': 'new clothing item',
+				'quantity': 12,
+			}
+		)
+		self.assertRedirects(
+			response,
+			expected_url=reverse('inventory:clothing_list'),
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
+
 
 class ClothingUpdateViewTest(TestCase):
 	@classmethod
@@ -899,6 +1035,22 @@ class ClothingUpdateViewTest(TestCase):
 		)
 		self.assertEqual(response.status_code, 200)
 		self.assertTemplateUsed(response, 'inventory/clothing_form.html')
+
+	def test_valid_post(self):
+		response = self.authenticated_client.post(
+			reverse('inventory:clothing_update', args=[1]),
+			{
+				'description': 'new clothing item description',
+				'quantity': 122,
+			}
+		)
+		self.assertRedirects(
+			response,
+			expected_url=reverse('inventory:clothing_list'),
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 
 class ClothingDeleteViewTest(TestCase):
