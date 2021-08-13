@@ -209,3 +209,10 @@ def clothing_update(request, id):
 			'clothing': clothing,
 		}
 	)
+
+
+@login_required
+def clothing_delete(request, id):
+	clothing = get_object_or_404(Clothing, id=id)
+	clothing.delete()
+	return HttpResponseRedirect('/inventory/clothing/')
