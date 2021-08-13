@@ -1,5 +1,5 @@
-# Ignore secrets
-veganmsp/secrets.py
+# Ignore db_graph
+db_graph.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
