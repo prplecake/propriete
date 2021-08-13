@@ -62,8 +62,15 @@ class IndexViewTest(TestCase):
 		self.assertTrue('policy_info' in response.context)
 
 	def test_view_url_unauthenticated(self):
-		response = self.client.get('/')
-		self.assertEqual(response.status_code, 302)
+		url = '/'
+		response = self.client.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/')
@@ -101,9 +108,16 @@ class ItemListViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/'
 		c = Client()
-		response = c.get('/inventory/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/')
@@ -139,9 +153,16 @@ class OwnerInfoCreateViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/owner_info_create/'
 		c = Client()
-		response = c.get('/inventory/owner_info_create/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/owner_info_create/')
@@ -176,9 +197,16 @@ class PolicyInfoCreateViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/policy_info_create/'
 		c = Client()
-		response = c.get('/inventory/policy_info_create/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/policy_info_create/')
@@ -213,9 +241,16 @@ class OwnerInfoUpdateViewTestNoData(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/owner_info_update/'
 		c = Client()
-		response = c.get('/inventory/owner_info_update/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/owner_info_update/')
@@ -243,9 +278,16 @@ class PolicyInfoUpdateViewTestNoData(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/policy_info_update/'
 		c = Client()
-		response = c.get('/inventory/policy_info_update/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/policy_info_update/')
@@ -279,9 +321,16 @@ class OwnerInfoUpdateViewTestWithData(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/owner_info_update/'
 		c = Client()
-		response = c.get('/inventory/owner_info_update/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/owner_info_update/')
@@ -333,9 +382,16 @@ class PolicyInfoUpdateViewTestWithData(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/policy_info_update/'
 		c = Client()
-		response = c.get('/inventory/policy_info_update/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/policy_info_update/')
@@ -369,9 +425,16 @@ class ItemAddViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/item/add/'
 		c = Client()
-		response = c.get('/inventory/item/add/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/item/add/')
@@ -407,9 +470,16 @@ class ItemUpdateViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/item/1/edit/'
 		c = Client()
-		response = c.get('/inventory/item/add/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/item/1/edit/')
@@ -449,9 +519,16 @@ class ItemDeleteViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/item/1/delete/'
 		c = Client()
-		response = c.get('/inventory/item/1/delete/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/item/1/delete/')
@@ -504,9 +581,16 @@ class LocationListViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/locations/'
 		c = Client()
-		response = c.get('/inventory/locations/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/locations/')
@@ -541,9 +625,16 @@ class LocationAddViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/item/add/'
 		c = Client()
-		response = c.get('/inventory/item/add/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/locations/add/')
@@ -591,9 +682,16 @@ class LocationDetailViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/locations/1/'
 		c = Client()
-		response = c.get('/inventory/locations/1/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/locations/1/')
@@ -639,9 +737,16 @@ class LocationDeleteViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/locations/1/delete/'
 		c = Client()
-		response = c.get('/inventory/locations/1/delete/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/locations/1/delete/')
@@ -695,9 +800,16 @@ class ClothingListViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/clothing/'
 		c = Client()
-		response = c.get('/inventory/clothing/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/clothing/')
@@ -732,9 +844,16 @@ class ClothingAddViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/clothing/add/'
 		c = Client()
-		response = c.get('/inventory/clothing/add/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/clothing/add/')
@@ -770,9 +889,16 @@ class ClothingUpdateViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/clothing/1/edit/'
 		c = Client()
-		response = c.get('/inventory/clothing/1/edit/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/clothing/1/edit/')
@@ -812,9 +938,16 @@ class ClothingDeleteViewTest(TestCase):
 		cls.authenticated_client = authenticated_client
 
 	def test_view_url_unauthenticated(self):
+		url = '/inventory/clothing/1/delete/'
 		c = Client()
-		response = c.get('/inventory/clothing/1/delete/')
-		self.assertEqual(response.status_code, 302)
+		response = c.get(url)
+		self.assertRedirects(
+			response,
+			expected_url=f'/accounts/login/?next={url}',
+			status_code=302,
+			target_status_code=200,
+			fetch_redirect_response=True
+		)
 
 	def test_view_url_exists_at_desired_location(self):
 		response = self.authenticated_client.get('/inventory/clothing/1/delete/')
