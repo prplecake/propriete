@@ -143,11 +143,7 @@ def location_add(request):
 @login_required
 def location_detail(request, id):
 	location = get_object_or_404(Location, id=id)
-	items = None
-	try:
-		items = Item.objects.filter(location_id=location.id)
-	except Item.DoesNotExist:
-		pass
+	items = Item.objects.filter(location_id=location.id)
 
 	return render(
 		request,
