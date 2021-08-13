@@ -6,19 +6,19 @@
 <p><a href="/inventory/">View Inventory</a></p>
 
 <h2>Owner Information</h2>
-{% if ownerinfo %}
+{% if owner_info %}
 <table>
 	<tr>
 		<th>Name</th>
-		<td>{{ownerinfo.name}}</td>
+		<td>{{owner_info.name}}</td>
 	</tr>
 	<tr>
 		<th>Address</th>
-		<td>{{ownerinfo.address|linebreaks}}</td>
+		<td>{{owner_info.address|linebreaks}}</td>
 	</tr>
 	<tr>
 		<th>Phone Number</th>
-		<td>{{ownerinfo.phone}}</td>
+		<td>{{owner_info.phone}}</td>
 	</tr>
 </table>
 <a href="/inventory/owner_info_update/">Update Owner Information</a>
@@ -27,31 +27,31 @@
 {% endif %}
 
 <h2>Policy Information</h2>
-{% if policyinfo %}
+{% if policy_info %}
 <table>
 	<tr>
 		<th>Policy Number:</th>
-		<td>{{policyinfo.policy_number}}</td>
+		<td>{{policy_info.policy_number}}</td>
 	</tr>
 	<tr>
 		<th>Agent Name:</th>
-		<td>{{policyinfo.agent_name}}</td>
+		<td>{{policy_info.agent_name}}</td>
 
 		<th>Company Name:</th>
-		<td>{{policyinfo.company_name}}</td>
+		<td>{{policy_info.company_name}}</td>
 	</tr>
 	<tr>
 		<th>Agent Phone:</th>
-		<td>{{policyinfo.agent_phone}}</td>
+		<td>{{policy_info.agent_phone}}</td>
 		<th>Company Claims Phone:</th>
-		<td>{{policyinfo.company_claims_phone}}</td>
+		<td>{{policy_info.company_claims_phone}}</td>
 	</tr>
 	<tr>
 		<th>Agent Email:</th>
-		<td><a href="mailto:{{policyinfo.agent_email}}">{{policyinfo.agent_email}}</a></td>
+		<td><a href="mailto:{{policyinfo.agent_email}}">{{policy_info.agent_email}}</a></td>
 
 		<th>Company Website:</th>
-		<td><a href="{{policyinfo.company_website}}">{{policyinfo.company_website}}</a></td>
+		<td><a href="{{policyinfo.company_website}}">{{policy_info.company_website}}</a></td>
 	</tr>
 </table>
 <a href="/inventory/policy_info_update/">Update Policy Information</a>

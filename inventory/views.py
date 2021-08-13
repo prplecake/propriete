@@ -27,11 +27,11 @@ class IndexView(LoginRequiredMixin, TemplateView):
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
 		try:
-			context['ownerinfo'] = OwnerInfo.objects.get(pk=1)
+			context['owner_info'] = OwnerInfo.objects.get(pk=1)
 		except OwnerInfo.DoesNotExist:
 			print("Error!")
 		try:
-			context['policyinfo'] = PolicyInfo.objects.get(pk=1)
+			context['policy_info'] = PolicyInfo.objects.get(pk=1)
 		except PolicyInfo.DoesNotExist:
 			print("Error!")
 		return context
