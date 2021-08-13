@@ -23,5 +23,6 @@ urlpatterns = [
 
 	path('inventory/clothing/', views.clothing_list, name='clothing_list'),
 	path('inventory/clothing/add/', views.clothing_add, name='clothing_add'),
-	path('inventory/clothing/<int:id>/edit/', views.clothing_update, name='clothing_update')
+	path('inventory/clothing/<int:id>/edit/', views.clothing_update, name='clothing_update'),
+	path('inventory/clothing/<int:id>/delete/', views.clothing_delete, name='clothing_delete'),
 ]

@@ -5,6 +5,6 @@
 	{% csrf_token %}
 	{{ form.as_p }}
 	<input type="submit" value="Submit" />
-	<a href="{% url 'inventory:clothing_list' %}"><button type="button">Go Back</button></a> {% if location %}<a href="{% url 'inventory:item_delete' location.id %}"><button type="button" class="danger">Delete</button></a>{% endif %}
+	<a href="{% url 'inventory:clothing_list' %}"><button type="button">Go Back</button></a> {% if clothing %}<a href="{% url 'inventory:clothing_delete' clothing.id %}"><button type="button" class="danger">Delete</button></a>{% endif %}
 </form>
 {% endblock %}
