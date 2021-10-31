@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from django.utils.datastructures import MultiValueDictKeyError
 from django.views.generic import View, DetailView, ListView, TemplateView
 
 from .forms import (
@@ -83,12 +84,24 @@ def policy_info_update(request):
 
 @login_required
 def item_add(request):
+	add_another = False
 	if request.method == 'POST':
 		form = ItemForm(request.POST)
+		try:
+			if request.POST['add_another'] == 'on':
+				add_another = True
+		except MultiValueDictKeyError:
+			add_another = False
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/inventory/')
-	form = ItemForm()
+			if add_another:
+				pass
+			else:
+				return HttpResponseRedirect('/inventory/')
+	form = ItemForm(
+		initial={
+			'add_another': add_another,
+		})
 	return render(request, 'inventory/item_form.html', {'form': form})
 
 
@@ -131,12 +144,24 @@ def location_list(request):
 
 @login_required
 def location_add(request):
+	add_another = False
 	if request.method == 'POST':
 		form = LocationForm(request.POST)
+		try:
+			if request.POST['add_another'] == 'on':
+				add_another = True
+		except MultiValueDictKeyError:
+			add_another = False
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/inventory/locations/')
-	form = LocationForm()
+			if add_another:
+				pass
+			else:
+				return HttpResponseRedirect('/inventory/locations/')
+	form = LocationForm(
+		initial={
+			'add_another': add_another,
+		})
 	return render(request, 'inventory/location_form.html', {'form': form})
 
 
@@ -180,12 +205,24 @@ def clothing_list(request):
 
 @login_required
 def clothing_add(request):
+	add_another = False
 	if request.method == 'POST':
 		form = ClothingForm(request.POST)
+		try:
+			if request.POST['add_another'] == 'on':
+				add_another = True
+		except MultiValueDictKeyError:
+			add_another = False
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/inventory/clothing/')
-	form = ClothingForm()
+			if add_another:
+				pass
+			else:
+				return HttpResponseRedirect('/inventory/clothing/')
+	form = ClothingForm(
+		initial={
+			'add_another': add_another,
+		})
 	return render(request, 'inventory/clothing_form.html', {'form': form})
 
 

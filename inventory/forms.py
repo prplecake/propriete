@@ -1,4 +1,4 @@
-from django.forms import ModelForm, TextInput
+from django.forms import BooleanField, ModelForm, TextInput
 
 from .models import (
 	OwnerInfo,
@@ -46,6 +46,8 @@ class PolicyInfoForm(ModelForm):
 
 
 class ItemForm(ModelForm):
+	add_another = BooleanField(required=False)
+
 	class Meta:
 		model = Item
 		fields = (
@@ -59,6 +61,7 @@ class ItemForm(ModelForm):
 			'current_value',
 			'photo',
 			'notes',
+			'add_another',
 		)
 		widgets = {
 			'description': TextInput(
@@ -69,10 +72,13 @@ class ItemForm(ModelForm):
 
 
 class LocationForm(ModelForm):
+	add_another = BooleanField(required=False)
+
 	class Meta:
 		model = Location
 		fields = (
 			'name',
+			'add_another',
 		)
 		widgets = {
 			'name': TextInput(
@@ -83,6 +89,8 @@ class LocationForm(ModelForm):
 
 
 class ClothingForm(ModelForm):
+	add_another = BooleanField(required=False)
+
 	class Meta:
 		model = Clothing
 		fields = (
@@ -90,6 +98,7 @@ class ClothingForm(ModelForm):
 			'brand',
 			'quantity',
 			'notes',
+			'add_another',
 		)
 		widgets = {
 			'description': TextInput(
