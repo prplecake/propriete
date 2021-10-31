@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'inventory',
+    'media',
 
     'django_extensions',
     'phone_field',
