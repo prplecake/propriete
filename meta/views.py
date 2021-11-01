@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 
@@ -16,8 +18,11 @@ from view_classes import (
 	BaseUpdateView,
 )
 
+logger = logging.getLogger(__name__)
+
 
 class IndexView(LoginRequiredMixin, TemplateView):
+	logger.info('IndexView')
 	template_name = 'meta/index.html'
 
 	def get_context_data(self, **kwargs):
