@@ -1,7 +1,4 @@
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView
 
 from .forms import (
@@ -12,6 +9,11 @@ from .forms import (
 from .models import (
 	OwnerInfo,
 	PolicyInfo,
+)
+
+from view_classes import (
+	BaseAddView,
+	BaseUpdateView,
 )
 
 
@@ -31,45 +33,35 @@ class IndexView(LoginRequiredMixin, TemplateView):
 		return context
 
 
-@login_required
-def owner_info_create(request):
-	if request.method == 'POST':
-		form = OwnerInfoForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return HttpResponseRedirect('/')
-	form = OwnerInfoForm()
-	return render(request, 'meta/generic_form.html', {'form': form})
+class OwnerInfoCreate(BaseAddView):
+	form_class = OwnerInfoForm
+	template_name = 'inventory/generic_form.html'
+	redirect_target = 'meta:index'
 
 
-@login_required
-def owner_info_update(request):
-	ownerinfo = get_object_or_404(OwnerInfo, id=1)
-	form = OwnerInfoForm(request.POST or None, instance=ownerinfo)
-	if form.is_valid():
-		form.save()
-		return HttpResponseRedirect('/')
+class OwnerInfoUpdate(BaseUpdateView):
+	model_class = OwnerInfo
+	form_class = OwnerInfoForm
+	template_name = 'inventory/generic_form.html'
+	redirect_target = 'meta:index'
 
-	return render(request, 'meta/generic_form.html', {'form': form})
-
-
-@login_required
-def policy_info_create(request):
-	if request.method == 'POST':
-		form = PolicyInfoForm(request.POST)
-		if form.is_valid():
-			form.save()
-			return HttpResponseRedirect('/')
-	form = PolicyInfoForm()
-	return render(request, 'meta/generic_form.html', {'form': form})
+	def get(self, request, *args, **kwargs):
+		id = 1
+		return super().get(request, id)
 
 
-@login_required
-def policy_info_update(request):
-	policyinfo = get_object_or_404(PolicyInfo, id=1)
-	form = PolicyInfoForm(request.POST or None, instance=policyinfo)
-	if form.is_valid():
-		form.save()
-		return HttpResponseRedirect('/')
+class PolicyInfoCreate(BaseAddView):
+	form_class = PolicyInfoForm
+	template_name = 'inventory/generic_form.html'
+	redirect_target = 'meta:index'
 
-	return render(request, 'meta/generic_form.html', {'form': form})
+
+class PolicyInfoUpdate(BaseUpdateView):
+	model_class = PolicyInfo
+	form_class = PolicyInfoForm
+	template_name = 'inventory/generic_form.html'
+	redirect_target = 'meta:index'
+
+	def get(self, request, *args, **kwargs):
+		id = 1
+		return super().get(request, id)
