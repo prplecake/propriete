@@ -17,6 +17,11 @@ from .models import (
 	Clothing,
 )
 
+from view_classes import (
+	BaseAddView,
+	BaseUpdateView,
+	BaseDeleteView,
+)
 
 @login_required
 def item_add(request):
