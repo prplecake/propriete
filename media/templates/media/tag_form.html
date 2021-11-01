@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="Submit" />
+	<a href="{% url 'media:tag_list' %}"><button type="button">Go Back</button></a> {% if obj %}<a href="{% url 'media:tag_delete' obj.id %}"><button type="button" class="danger">Delete</button></a>{% endif %}
+</form>
+
+{% endblock %}

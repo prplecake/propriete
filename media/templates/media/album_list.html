@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'media:album_add' %}">Add Album</a> | <a href="{% url 'media:index' %}">Go Back</a>
+{% if album_list %}
+<table class="album_list">
+	<thead>
+		<tr>
+			<th>Description</th>
+			<th>Artist</th>
+			<th>ISBN</th>
+			<th>Date Purchased</th>
+			<th>Where Purchased</th>
+			<th>Purchase Prive</th>
+			<th>Est. Current Value</th>
+			<th>Notes</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for album in album_list %}
+		<tr>
+			<td>{{ album.description }}</td>
+			<td>{{ album.artist }}</td>
+			<td>{{ album.serial_number }}</td>
+			<td>{% if album.purchase_date %}{{ album.purchase_date }}{% endif %}</td>
+			<td>{{ album.purchase_location }}</td>
+			<td>{% if album.purchase_price %}{{ album.purchase_price }}{% endif %}</td>
+			<td>{% if album.current_value %}{{ album.current_value }}{% endif %}</td>
+			<td>{{ album.notes }}</td>
+			<td><a href="{% url 'media:album_update' album.id %}">Edit</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<p>There are no albums.</p>
+{% endif %}
+
+{% endblock %}

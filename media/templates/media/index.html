@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Albums</h2>
+
+{% if album_list %}
+<ul>
+	{% for album in album_list %}
+	<li>{{ album }} - <a href="{% url 'media:album_update' album.id %}">Edit</a></li>
+	{% endfor %}
+</ul>
+<p><a href="{% url 'media:album_add' %}">Add Album</a> | <a href="{% url 'media:album_list' %}">View all albums</a></p>
+{% else %}
+<p>There are no albums.</p>
+{% endif %}
+
+<h2>Books</h2>
+
+{% if book_list %}
+<ul>
+	{% for book in book_list %}
+	<li>{{ book }}</li>
+	{% endfor %}
+</ul>
+<p><a href="{% url 'media:book_add' %}">Add Book</a> | <a href="{% url 'media:book_list' %}">View all books</a></p>
+{% else %}
+<p>There are no books.</p>
+{% endif %}
+
+<h2>Movies</h2>
+
+{% if movie_list %}
+<ul>
+	{% for movie in movie_list %}
+	<li>{{ movie }}</li>
+	{% endfor %}
+</ul>
+<p><a href="{% url 'media:movie_add' %}">Add Movie</a> | <a href="{% url 'media:movie_list' %}">View all movies</a></p>
+{% else %}
+<p>There are no movies.</p>
+{% endif %}
+
+<h2>Tags</h2>
+
+{% if tag_list %}
+<ul>
+	{% for tag in tag_list %}
+	<li>{{ tag }}</li>
+	{% endfor %}
+</ul>
+{% else %}
+<p>There are no tags.</p>
+{% endif %}
+<p><a href="{% url 'media:tag_add' %}">Add Tag</a>{% if tag_list %} | <a href="{% url 'media:tag_list' %}">View all tags</a></p>{% endif %}
+
+{% endblock %}
