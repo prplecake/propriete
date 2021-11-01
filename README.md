@@ -21,7 +21,7 @@ recreating the ERD.
 
 Creating migrations:
 
-	pipenv run python manage.y makemigrations
+	pipenv run python manage.py makemigrations
 
 Applying migrations:
 
