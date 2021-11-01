@@ -2,7 +2,7 @@
 {% load humanize %}
 
 {% block content %}
-<a href="{% url 'inventory:item_add' %}">Add Item</a> | <a href="{% url 'inventory:location_list' %}">Locations</a> | <a href="{% url 'inventory:clothing_list' %}">Clothing</a> | <a href="{% url 'inventory:index' %}">Go Back</a>
+<a href="{% url 'inventory:item_add' %}">Add Item</a> | <a href="{% url 'inventory:location_list' %}">Locations</a> | <a href="{% url 'inventory:clothing_list' %}">Clothing</a> | <a href="{% url 'meta:index' %}">Go Back</a>
 {% if item_list %}
 <table class="inventory_list">
 	<thead>

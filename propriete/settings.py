@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'inventory',
     'media',
+    'meta',
 
     'django_extensions',
     'phone_field',

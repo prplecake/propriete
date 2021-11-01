@@ -21,7 +21,6 @@ class BaseAlbumForm(ModelForm):
 			'current_value',
 			'notes',
 		)
-		print(type(fields))
 		widgets = {
 			'description': TextInput(
 				attrs={
