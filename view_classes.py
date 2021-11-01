@@ -29,7 +29,7 @@ class BaseAddView(LoginRequiredMixin, View):
 		except MultiValueDictKeyError:
 			self.add_another = False
 		if form.is_valid():
-			form.save()	
+			form.save()
 			if self.add_another:
 				pass
 			else:
@@ -62,7 +62,7 @@ class BaseUpdateView(LoginRequiredMixin, View):
 		obj = get_object_or_404(self.model_class, id=id)
 		form = self.form_class(request.POST or None, instance=obj)
 		if form.is_valid():
-			form.save()	
+			form.save()
 			return HttpResponseRedirect(reverse(self.redirect_target))
 		form = self.form_class()
 		return render(
