@@ -20,7 +20,7 @@ from .models import (
 	Tag,
 )
 
-from .view_classes import (
+from view_classes import (
 	BaseAddView,
 	BaseUpdateView,
 	BaseDeleteView,
