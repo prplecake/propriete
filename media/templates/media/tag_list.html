@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'media:tag_add' %}">Add Tag</a> | <a href="{% url 'media:index' %}">Go Back</a>
+{% if tag_list %}
+<ul class="tag_list">
+		{% for tag in tag_list %}
+		<li>{{ tag }} - <a href="{% url 'media:tag_update' tag.id %}">Edit</a></li>
+		{% endfor %}
+</ul>
+{% else %}
+<p>There are no tags.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a href="{% url 'media:movie_add' %}">Add Movie</a> | <a href="{% url 'media:index' %}">Go Back</a>
+{% if movie_list %}
+<table class="movie_list">
+	<thead>
+		<tr>
+			<th>Description</th>
+			<th>Author</th>
+			<th>ISBN</th>
+			<th>Date Purchased</th>
+			<th>Where Purchased</th>
+			<th>Purchase Prive</th>
+			<th>Est. Current Value</th>
+			<th>Notes</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for movie in movie_list %}
+		<tr>
+			<td>{{ movie.description }}</td>
+			<td>{{ movie.author }}</td>
+			<td>{{ movie.serial_number }}</td>
+			<td>{% if movie.purchase_date %}{{ movie.purchase_date }}{% endif %}</td>
+			<td>{{ movie.purchase_location }}</td>
+			<td>{% if movie.purchase_price %}{{ movie.purchase_price }}{% endif %}</td>
+			<td>{% if movie.current_value %}{{ movie.current_value }}{% endif %}</td>
+			<td>{{ movie.notes }}</td>
+			<td><a href="{% url 'media:movie_update' movie.id %}">Edit</a></td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+{% else %}
+<p>There are no movies.</p>
+{% endif %}
+
+{% endblock %}
