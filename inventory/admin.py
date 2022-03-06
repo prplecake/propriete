@@ -1,10 +1,10 @@
 from django.contrib import admin
 
 from .models import (
-	Tag,
-	Item,
-	Clothing,
-	Location,
+    Tag,
+    Item,
+    Clothing,
+    Location,
 )
 
 
