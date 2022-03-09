@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/prplecake/propriete/branch/master/graph/badge.svg?token=OP3YLKULU0)](https://codecov.io/gh/prplecake/propriete)
+
 # propriete
 
 A home inventory tracking system.
