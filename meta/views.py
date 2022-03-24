@@ -1,6 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
 
+from generic.views import (
+    BaseAddView,
+    BaseUpdateView,
+)
+
 from .forms import (
     OwnerInfoForm,
     PolicyInfoForm,
@@ -9,11 +14,6 @@ from .forms import (
 from .models import (
     OwnerInfo,
     PolicyInfo,
-)
-
-from view_classes import (
-    BaseAddView,
-    BaseUpdateView,
 )
 
 

@@ -2,6 +2,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, View
 
+from generic.views import (
+    BaseAddView,
+    BaseDeleteView,
+    BaseUpdateView,
+)
+
 from .forms import (
     ClothingAddForm,
     ClothingUpdateForm,
@@ -15,12 +21,6 @@ from .models import (
     Clothing,
     Item,
     Location,
-)
-
-from view_classes import (
-    BaseAddView,
-    BaseDeleteView,
-    BaseUpdateView,
 )
 
 
