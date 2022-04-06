@@ -18,11 +18,10 @@ from .models import (
     PolicyInfo,
 )
 
+
 logger = logging.getLogger(__name__)
 
-
 class IndexView(LoginRequiredMixin, TemplateView):
-    logger.info('IndexView')
     template_name = 'meta/index.html'
 
     def get_context_data(self, **kwargs):

@@ -1,9 +1,13 @@
+import logging
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 from django.utils.datastructures import MultiValueDictKeyError
 from django.views.generic import View
+
+logger = logging.getLogger(__name__)
 
 
 class BaseAddView(LoginRequiredMixin, View):
