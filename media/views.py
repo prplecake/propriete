@@ -2,6 +2,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views.generic import ListView, View
 
+from generic.views import (
+    BaseAddView,
+    BaseUpdateView,
+    BaseDeleteView,
+)
+
 from .forms import (
     AlbumAddForm,
     AlbumUpdateForm,
@@ -18,12 +24,6 @@ from .models import (
     Book,
     Movie,
     Tag,
-)
-
-from view_classes import (
-    BaseAddView,
-    BaseUpdateView,
-    BaseDeleteView,
 )
 
 
