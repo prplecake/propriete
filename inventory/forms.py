@@ -1,3 +1,5 @@
+import logging
+
 from django.forms import BooleanField, ModelForm, TextInput
 
 from .models import (
@@ -6,6 +8,8 @@ from .models import (
     Clothing,
 )
 
+
+logger = logging.getLogger(__name__)
 
 class BaseItemForm(ModelForm):
     class Meta:

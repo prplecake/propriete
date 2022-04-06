@@ -134,6 +134,41 @@ USE_L10N = False
 
 USE_TZ = True
 
+# Logging
+
+if DEBUG:
+    LOG_LEVEL = 'DEBUG'
+else:
+    LOG_LEVEL = 'INFO'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': LOG_LEVEL,
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console'],
+            'level': 'INFO',
+            'propagate': False,
+        }
+    },
+    'formatters': {
+        'simple': {
+            'format': '{asctime} [{name} {levelname}] {message}',
+            'style': '{',
+        },
+    },
+}
+
 # Default date format
 
 DATE_FORMAT = 'Y-m-d'
