@@ -1,3 +1,5 @@
+[![Django CI](https://github.com/prplecake/propriete/actions/workflows/django.yaml/badge.svg)](https://github.com/prplecake/propriete/actions/workflows/django.yaml)
+[![CodeFactor](https://www.codefactor.io/repository/github/prplecake/propriete/badge)](https://www.codefactor.io/repository/github/prplecake/propriete)
 [![codecov](https://codecov.io/gh/prplecake/propriete/branch/master/graph/badge.svg?token=OP3YLKULU0)](https://codecov.io/gh/prplecake/propriete)
 
 # propriete
