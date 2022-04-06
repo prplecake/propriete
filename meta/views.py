@@ -46,12 +46,10 @@ class OwnerInfoUpdate(BaseUpdateView):
     redirect_target = 'meta:index'
 
     def get(self, request, *args, **kwargs):
-        id = 1
-        return super().get(request, id)
+        return super().get(request, 1)
 
     def post(self, request, *args, **kwargs):
-        id = 1
-        return super().post(request, id)
+        return super().post(request, 1)
 
 
 class PolicyInfoCreate(BaseAddView):
@@ -67,9 +65,7 @@ class PolicyInfoUpdate(BaseUpdateView):
     redirect_target = 'meta:index'
 
     def get(self, request, *args, **kwargs):
-        id = 1
-        return super().get(request, id)
+        return super().get(request, 1)
 
     def post(self, request, *args, **kwargs):
-        id = 1
-        return super().post(request, id)
+        return super().post(request, 1)
