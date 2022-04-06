@@ -147,6 +147,7 @@ LOGGING = {
     'handlers': {
         'console': {
             'class': 'logging.StreamHandler',
+            'formatter': 'simple',
         },
     },
     'root': {
@@ -159,7 +160,13 @@ LOGGING = {
             'level': 'INFO',
             'propagate': False,
         }
-    }
+    },
+    'formatters': {
+        'simple': {
+            'format': '{asctime} [{name} {levelname}] {message}',
+            'style': '{',
+        },
+    },
 }
 
 # Default date format
