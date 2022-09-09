@@ -18,8 +18,8 @@ from .models import (
     PolicyInfo,
 )
 
-
 logger = logging.getLogger(__name__)
+
 
 class IndexView(LoginRequiredMixin, TemplateView):
     template_name = 'meta/index.html'

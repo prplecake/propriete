@@ -8,8 +8,8 @@ from .models import (
     Clothing,
 )
 
-
 logger = logging.getLogger(__name__)
+
 
 class BaseItemForm(ModelForm):
     class Meta:

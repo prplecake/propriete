@@ -25,8 +25,8 @@ from .models import (
     Location,
 )
 
-
 logger = logging.getLogger(__name__)
+
 
 class ItemAdd(BaseAddView):
     form_class = ItemAddForm
