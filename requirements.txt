@@ -6,7 +6,7 @@ Django==4.2
 django-extensions==3.2.1
 django-phone-field==1.8.1
 exceptiongroup==1.0.0rc9
-iniconfig==1.1.1
+iniconfig==2.0.0
 packaging==23.0
 pluggy==1.0.0
 py==1.11.0
