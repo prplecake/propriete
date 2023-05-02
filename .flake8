@@ -1,3 +1,5 @@
 [flake8]
 exclude =
     migrations,venv
+per-file-ignores =
+    propriete/settings.py:E501
