@@ -30,20 +30,20 @@ logger = logging.getLogger(__name__)
 
 class ItemAdd(BaseAddView):
     form_class = ItemAddForm
-    template_name = 'inventory/item_form.html'
-    redirect_target = 'inventory:inventory'
+    template_name = "inventory/item_form.html"
+    redirect_target = "inventory:inventory"
 
 
 class ItemUpdate(BaseUpdateView):
     model_class = Item
     form_class = ItemUpdateForm
-    template_name = 'inventory/item_form.html'
-    redirect_target = 'inventory:inventory'
+    template_name = "inventory/item_form.html"
+    redirect_target = "inventory:inventory"
 
 
 class ItemDelete(BaseDeleteView):
     model_class = Item
-    redirect_target = 'inventory:inventory'
+    redirect_target = "inventory:inventory"
 
 
 class LocationList(LoginRequiredMixin, ListView):
@@ -52,8 +52,8 @@ class LocationList(LoginRequiredMixin, ListView):
 
 class LocationAdd(BaseAddView):
     form_class = LocationAddForm
-    template_name = 'inventory/location_form.html'
-    redirect_target = 'inventory:location_list'
+    template_name = "inventory/location_form.html"
+    redirect_target = "inventory:location_list"
 
 
 class LocationDetail(LoginRequiredMixin, View):
@@ -63,10 +63,10 @@ class LocationDetail(LoginRequiredMixin, View):
 
         return render(
             request,
-            'inventory/location_detail.html',
+            "inventory/location_detail.html",
             {
-                'location': location,
-                'item_list': items,
+                "location": location,
+                "item_list": items,
             }
         )
 
@@ -74,13 +74,13 @@ class LocationDetail(LoginRequiredMixin, View):
 class LocationUpdate(BaseUpdateView):
     model_class = Location
     form_class = LocationUpdateForm
-    template_name = 'inventory/location_form.html'
-    redirect_target = 'inventory:location_list'
+    template_name = "inventory/location_form.html"
+    redirect_target = "inventory:location_list"
 
 
 class LocationDelete(BaseDeleteView):
     model_class = Location
-    redirect_target = 'inventory:location_list'
+    redirect_target = "inventory:location_list"
 
 
 class ClothingList(LoginRequiredMixin, ListView):
@@ -89,20 +89,20 @@ class ClothingList(LoginRequiredMixin, ListView):
 
 class ClothingAdd(BaseAddView):
     form_class = ClothingAddForm
-    template_name = 'inventory/clothing_form.html'
-    redirect_target = 'inventory:clothing_list'
+    template_name = "inventory/clothing_form.html"
+    redirect_target = "inventory:clothing_list"
 
 
 class ClothingUpdate(BaseUpdateView):
     model_class = Clothing
     form_class = ClothingUpdateForm
-    template_name = 'inventory/clothing_form.html'
-    redirect_target = 'inventory:clothing_list'
+    template_name = "inventory/clothing_form.html"
+    redirect_target = "inventory:clothing_list"
 
 
 class ClothingDelete(BaseDeleteView):
     model_class = Clothing
-    redirect_target = 'inventory:clothing_list'
+    redirect_target = "inventory:clothing_list"
 
 
 class InventoryView(LoginRequiredMixin, ListView):

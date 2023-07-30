@@ -15,20 +15,20 @@ class BaseAddView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial={
-            'add_another': self.add_another,
+            "add_another": self.add_another,
         })
         return render(
             request,
             self.template_name,
             {
-                'form': form,
+                "form": form,
             }
         )
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         try:
-            if request.POST['add_another'] == 'on':
+            if request.POST["add_another"] == "on":
                 self.add_another = True
         except MultiValueDictKeyError:
             self.add_another = False
@@ -39,13 +39,13 @@ class BaseAddView(LoginRequiredMixin, View):
             else:
                 return HttpResponseRedirect(reverse(self.redirect_target))
         form = self.form_class(initial={
-            'add_another': self.add_another,
+            "add_another": self.add_another,
         })
         return render(
             request,
             self.template_name,
             {
-                'form': form
+                "form": form
             })
 
 
@@ -57,8 +57,8 @@ class BaseUpdateView(LoginRequiredMixin, View):
             request,
             self.template_name,
             {
-                'form': form,
-                'obj': obj,
+                "form": form,
+                "obj": obj,
             }
         )
 
@@ -73,7 +73,7 @@ class BaseUpdateView(LoginRequiredMixin, View):
             request,
             self.template_name,
             {
-                'form': form
+                "form": form
             })
 
 

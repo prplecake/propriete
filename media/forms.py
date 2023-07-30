@@ -12,19 +12,19 @@ class BaseAlbumForm(ModelForm):
     class Meta:
         model = Album
         fields = (
-            'description',
-            'artist',
-            'serial_number',
-            'purchase_date',
-            'purchase_location',
-            'purchase_price',
-            'current_value',
-            'notes',
+            "description",
+            "artist",
+            "serial_number",
+            "purchase_date",
+            "purchase_location",
+            "purchase_price",
+            "current_value",
+            "notes",
         )
         widgets = {
-            'description': TextInput(
+            "description": TextInput(
                 attrs={
-                    'autofocus': True
+                    "autofocus": True
                 })
         }
 
@@ -34,7 +34,7 @@ class AlbumAddForm(BaseAlbumForm):
 
     class Meta:
         model = Album
-        fields = BaseAlbumForm.Meta.fields + ('add_another',)
+        fields = BaseAlbumForm.Meta.fields + ("add_another",)
 
 
 class AlbumUpdateForm(BaseAlbumForm):
@@ -45,19 +45,19 @@ class BaseBookForm(ModelForm):
     class Meta:
         model = Book
         fields = (
-            'description',
-            'author',
-            'serial_number',
-            'purchase_date',
-            'purchase_location',
-            'purchase_price',
-            'current_value',
-            'notes',
+            "description",
+            "author",
+            "serial_number",
+            "purchase_date",
+            "purchase_location",
+            "purchase_price",
+            "current_value",
+            "notes",
         )
         widgets = {
-            'description': TextInput(
+            "description": TextInput(
                 attrs={
-                    'autofocus': True
+                    "autofocus": True
                 })
         }
 
@@ -67,7 +67,7 @@ class BookAddForm(BaseBookForm):
 
     class Meta:
         model = Book
-        fields = BaseBookForm.Meta.fields + ('add_another',)
+        fields = BaseBookForm.Meta.fields + ("add_another",)
 
 
 class BookUpdateForm(BaseBookForm):
@@ -78,19 +78,19 @@ class BaseMovieForm(ModelForm):
     class Meta:
         model = Movie
         fields = (
-            'description',
-            'year',
-            'serial_number',
-            'purchase_date',
-            'purchase_location',
-            'purchase_price',
-            'current_value',
-            'notes',
+            "description",
+            "year",
+            "serial_number",
+            "purchase_date",
+            "purchase_location",
+            "purchase_price",
+            "current_value",
+            "notes",
         )
         widgets = {
-            'description': TextInput(
+            "description": TextInput(
                 attrs={
-                    'autofocus': True
+                    "autofocus": True
                 })
         }
 
@@ -100,7 +100,7 @@ class MovieAddForm(BaseMovieForm):
 
     class Meta:
         model = Movie
-        fields = BaseMovieForm.Meta.fields + ('add_another',)
+        fields = BaseMovieForm.Meta.fields + ("add_another",)
 
 
 class MovieUpdateForm(BaseMovieForm):
@@ -111,12 +111,12 @@ class BaseTagForm(ModelForm):
     class Meta:
         model = Tag
         fields = (
-            'name',
+            "name",
         )
         widgets = {
-            'name': TextInput(
+            "name": TextInput(
                 attrs={
-                    'autofocus': True
+                    "autofocus": True
                 })
         }
 
@@ -126,7 +126,7 @@ class TagAddForm(BaseTagForm):
 
     class Meta:
         model = Tag
-        fields = BaseTagForm.Meta.fields + ('add_another',)
+        fields = BaseTagForm.Meta.fields + ("add_another",)
 
 
 class TagUpdateForm(BaseTagForm):

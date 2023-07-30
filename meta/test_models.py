@@ -18,18 +18,18 @@ class OwnerInfoTestCase(TestCase):
 
     def test_name_label(self):
         owner = OwnerInfo.objects.get(id=1)
-        field_label = owner._meta.get_field('name').verbose_name
-        self.assertEqual(field_label, 'name')
+        field_label = owner._meta.get_field("name").verbose_name
+        self.assertEqual(field_label, "name")
 
     def test_address_label(self):
         owner = OwnerInfo.objects.get(id=1)
-        field_label = owner._meta.get_field('address').verbose_name
-        self.assertEqual(field_label, 'address')
+        field_label = owner._meta.get_field("address").verbose_name
+        self.assertEqual(field_label, "address")
 
     def test_phone_label(self):
         owner = OwnerInfo.objects.get(id=1)
-        field_label = owner._meta.get_field('phone').verbose_name
-        self.assertEqual(field_label, 'phone')
+        field_label = owner._meta.get_field("phone").verbose_name
+        self.assertEqual(field_label, "phone")
 
     def test_object_name_is_owner_name(self):
         owner = OwnerInfo.objects.get(id=1)
@@ -60,45 +60,45 @@ class PolicyInfoTestCase(TestCase):
 
     def test_policy_number_label(self):
         policy = PolicyInfo.objects.get(id=1)
-        field_label = policy._meta.get_field('policy_number').verbose_name
-        self.assertEqual(field_label, 'policy number')
+        field_label = policy._meta.get_field("policy_number").verbose_name
+        self.assertEqual(field_label, "policy number")
 
     def test_agent_name_label(self):
         policy = PolicyInfo.objects.get(id=1)
-        field_label = policy._meta.get_field('agent_name').verbose_name
-        self.assertEqual(field_label, 'agent name')
+        field_label = policy._meta.get_field("agent_name").verbose_name
+        self.assertEqual(field_label, "agent name")
 
     def test_agent_phone_label(self):
         policy = PolicyInfo.objects.get(id=1)
-        field_label = policy._meta.get_field('agent_phone').verbose_name
-        self.assertEqual(field_label, 'agent phone')
+        field_label = policy._meta.get_field("agent_phone").verbose_name
+        self.assertEqual(field_label, "agent phone")
 
     def test_agent_email_label(self):
         policy = PolicyInfo.objects.get(id=1)
-        field_label = policy._meta.get_field('agent_email').verbose_name
-        self.assertEqual(field_label, 'agent email')
+        field_label = policy._meta.get_field("agent_email").verbose_name
+        self.assertEqual(field_label, "agent email")
 
     def test_company_name_label(self):
         policy = PolicyInfo.objects.get(id=1)
-        field_label = policy._meta.get_field('company_name').verbose_name
-        self.assertEqual(field_label, 'company name')
+        field_label = policy._meta.get_field("company_name").verbose_name
+        self.assertEqual(field_label, "company name")
 
     def test_company_claims_phone_label(self):
         policy = PolicyInfo.objects.get(id=1)
         field_label = policy._meta.get_field(
-            'company_claims_phone'
+            "company_claims_phone"
         ).verbose_name
-        self.assertEqual(field_label, 'company claims phone')
+        self.assertEqual(field_label, "company claims phone")
 
     def test_company_website_label(self):
         policy = PolicyInfo.objects.get(id=1)
-        field_label = policy._meta.get_field('company_website').verbose_name
-        self.assertEqual(field_label, 'company website')
+        field_label = policy._meta.get_field("company_website").verbose_name
+        self.assertEqual(field_label, "company website")
 
     def test_policy_name_label(self):
         policy = PolicyInfo.objects.get(id=1)
-        field_label = policy._meta.get_field('policy_number').verbose_name
-        self.assertEqual(field_label, 'policy number')
+        field_label = policy._meta.get_field("policy_number").verbose_name
+        self.assertEqual(field_label, "policy number")
 
     def test_object_name_is_policy_number(self):
         policy = PolicyInfo.objects.get(id=1)

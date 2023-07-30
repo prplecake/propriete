@@ -16,18 +16,18 @@ class TagTestCase(TestCase):
 
     def test_name_label(self):
         tag = Tag.objects.get(id=1)
-        field_label = tag._meta.get_field('name').verbose_name
-        self.assertEqual(field_label, 'name')
+        field_label = tag._meta.get_field("name").verbose_name
+        self.assertEqual(field_label, "name")
 
     def test_slug_label(self):
         tag = Tag.objects.get(id=1)
-        field_label = tag._meta.get_field('slug').verbose_name
-        self.assertEqual(field_label, 'slug')
+        field_label = tag._meta.get_field("slug").verbose_name
+        self.assertEqual(field_label, "slug")
 
     def test_created_at_label(self):
         tag = Tag.objects.get(id=1)
-        field_label = tag._meta.get_field('created_at').verbose_name
-        self.assertEqual(field_label, 'created at')
+        field_label = tag._meta.get_field("created_at").verbose_name
+        self.assertEqual(field_label, "created at")
 
     def test_object_name_is_name(self):
         tag = Tag.objects.get(id=1)
@@ -43,18 +43,18 @@ class LocationTestCase(TestCase):
 
     def test_name_label(self):
         location = Location.objects.get(id=1)
-        field_label = location._meta.get_field('name').verbose_name
-        self.assertEqual(field_label, 'name')
+        field_label = location._meta.get_field("name").verbose_name
+        self.assertEqual(field_label, "name")
 
     def test_slug_label(self):
         location = Location.objects.get(id=1)
-        field_label = location._meta.get_field('slug').verbose_name
-        self.assertEqual(field_label, 'slug')
+        field_label = location._meta.get_field("slug").verbose_name
+        self.assertEqual(field_label, "slug")
 
     def test_created_at_label(self):
         location = Location.objects.get(id=1)
-        field_label = location._meta.get_field('created_at').verbose_name
-        self.assertEqual(field_label, 'created at')
+        field_label = location._meta.get_field("created_at").verbose_name
+        self.assertEqual(field_label, "created at")
 
     def test_object_name_is_name(self):
         location = Location.objects.get(id=1)
@@ -71,63 +71,63 @@ class ItemTestCase(TestCase):
 
     def test_description_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('description').verbose_name
-        self.assertEqual(field_label, 'description')
+        field_label = item._meta.get_field("description").verbose_name
+        self.assertEqual(field_label, "description")
 
     def test_slug_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('location').verbose_name
-        self.assertEqual(field_label, 'location')
+        field_label = item._meta.get_field("location").verbose_name
+        self.assertEqual(field_label, "location")
 
     def test_created_at_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('created_at').verbose_name
-        self.assertEqual(field_label, 'created at')
+        field_label = item._meta.get_field("created_at").verbose_name
+        self.assertEqual(field_label, "created at")
 
     def test_serial_number_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('serial_number').verbose_name
-        self.assertEqual(field_label, 'serial number')
+        field_label = item._meta.get_field("serial_number").verbose_name
+        self.assertEqual(field_label, "serial number")
 
     def test_purchase_date_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('purchase_date').verbose_name
-        self.assertEqual(field_label, 'purchase date')
+        field_label = item._meta.get_field("purchase_date").verbose_name
+        self.assertEqual(field_label, "purchase date")
 
     def test_notes_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('notes').verbose_name
-        self.assertEqual(field_label, 'notes')
+        field_label = item._meta.get_field("notes").verbose_name
+        self.assertEqual(field_label, "notes")
 
     def test_photo_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('photo').verbose_name
-        self.assertEqual(field_label, 'photo')
+        field_label = item._meta.get_field("photo").verbose_name
+        self.assertEqual(field_label, "photo")
 
     def test_purchase_location_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('purchase_location').verbose_name
-        self.assertEqual(field_label, 'purchase location')
+        field_label = item._meta.get_field("purchase_location").verbose_name
+        self.assertEqual(field_label, "purchase location")
 
     def test_purchase_price_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('purchase_price').verbose_name
-        self.assertEqual(field_label, 'purchase price')
+        field_label = item._meta.get_field("purchase_price").verbose_name
+        self.assertEqual(field_label, "purchase price")
 
     def test_current_value_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('current_value').verbose_name
-        self.assertEqual(field_label, 'current value')
+        field_label = item._meta.get_field("current_value").verbose_name
+        self.assertEqual(field_label, "current value")
 
     def test_make_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('make').verbose_name
-        self.assertEqual(field_label, 'make')
+        field_label = item._meta.get_field("make").verbose_name
+        self.assertEqual(field_label, "make")
 
     def test_tags_label(self):
         item = Item.objects.get(id=1)
-        field_label = item._meta.get_field('tags').verbose_name
-        self.assertEqual(field_label, 'tags')
+        field_label = item._meta.get_field("tags").verbose_name
+        self.assertEqual(field_label, "tags")
 
     def test_object_name_is_description(self):
         item = Item.objects.get(id=1)
@@ -144,23 +144,23 @@ class ClothingTestCase(TestCase):
 
     def test_description_label(self):
         clothing = Clothing.objects.get(id=1)
-        field_label = clothing._meta.get_field('description').verbose_name
-        self.assertEqual(field_label, 'description')
+        field_label = clothing._meta.get_field("description").verbose_name
+        self.assertEqual(field_label, "description")
 
     def test_slug_label(self):
         clothing = Clothing.objects.get(id=1)
-        field_label = clothing._meta.get_field('brand').verbose_name
-        self.assertEqual(field_label, 'brand')
+        field_label = clothing._meta.get_field("brand").verbose_name
+        self.assertEqual(field_label, "brand")
 
     def test_created_at_label(self):
         clothing = Clothing.objects.get(id=1)
-        field_label = clothing._meta.get_field('quantity').verbose_name
-        self.assertEqual(field_label, 'quantity')
+        field_label = clothing._meta.get_field("quantity").verbose_name
+        self.assertEqual(field_label, "quantity")
 
     def test_serial_number_label(self):
         clothing = Clothing.objects.get(id=1)
-        field_label = clothing._meta.get_field('notes').verbose_name
-        self.assertEqual(field_label, 'notes')
+        field_label = clothing._meta.get_field("notes").verbose_name
+        self.assertEqual(field_label, "notes")
 
     def test_object_name_is_description(self):
         clothing = Clothing.objects.get(id=1)
