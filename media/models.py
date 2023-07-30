@@ -31,13 +31,13 @@ class Album(models.Model):
         blank=True,
         null=True
     )
-    tags = models.ManyToManyField(Tag, related_name='album', blank=True)
+    tags = models.ManyToManyField(Tag, related_name="album", blank=True)
 
     def __str__(self):
         return self.description
 
     class Meta:
-        ordering = ['artist', 'description']
+        ordering = ["artist", "description"]
 
 
 class Book(models.Model):
@@ -60,13 +60,13 @@ class Book(models.Model):
         blank=True,
         null=True
     )
-    tags = models.ManyToManyField(Tag, related_name='book', blank=True)
+    tags = models.ManyToManyField(Tag, related_name="book", blank=True)
 
     def __str__(self):
         return self.description
 
     class Meta:
-        ordering = ['author', 'description']
+        ordering = ["author", "description"]
 
 
 class Movie(models.Model):
@@ -89,10 +89,10 @@ class Movie(models.Model):
         blank=True,
         null=True
     )
-    tags = models.ManyToManyField(Tag, related_name='movie', blank=True)
+    tags = models.ManyToManyField(Tag, related_name="movie", blank=True)
 
     def __str__(self):
         return self.description
 
     class Meta:
-        ordering = ['year', 'description']
+        ordering = ["year", "description"]

@@ -43,13 +43,13 @@ class Item(models.Model):
         Location, on_delete=models.CASCADE, blank=True, null=True
     )
     make = models.CharField(max_length=255, blank=True)
-    tags = models.ManyToManyField(Tag, related_name='item', blank=True)
+    tags = models.ManyToManyField(Tag, related_name="item", blank=True)
 
     def __str__(self):
         return self.description
 
     class Meta:
-        ordering = ['location', 'description']
+        ordering = ["location", "description"]
 
 
 class Clothing(models.Model):

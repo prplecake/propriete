@@ -15,21 +15,21 @@ class BaseItemForm(ModelForm):
     class Meta:
         model = Item
         fields = (
-            'description',
-            'location',
-            'make',
-            'serial_number',
-            'purchase_date',
-            'purchase_location',
-            'purchase_price',
-            'current_value',
-            'photo',
-            'notes',
+            "description",
+            "location",
+            "make",
+            "serial_number",
+            "purchase_date",
+            "purchase_location",
+            "purchase_price",
+            "current_value",
+            "photo",
+            "notes",
         )
         widgets = {
-            'description': TextInput(
+            "description": TextInput(
                 attrs={
-                    'autofocus': True
+                    "autofocus": True
                 })
         }
 
@@ -39,7 +39,7 @@ class ItemAddForm(BaseItemForm):
 
     class Meta:
         model = Item
-        fields = BaseItemForm.Meta.fields + ('add_another',)
+        fields = BaseItemForm.Meta.fields + ("add_another",)
 
 
 class ItemUpdateForm(BaseItemForm):
@@ -50,12 +50,12 @@ class BaseLocationForm(ModelForm):
     class Meta:
         model = Location
         fields = (
-            'name',
+            "name",
         )
         widgets = {
-            'name': TextInput(
+            "name": TextInput(
                 attrs={
-                    'autofocus': True
+                    "autofocus": True
                 })
         }
 
@@ -65,7 +65,7 @@ class LocationAddForm(BaseLocationForm):
 
     class Meta:
         model = Location
-        fields = BaseLocationForm.Meta.fields + ('add_another',)
+        fields = BaseLocationForm.Meta.fields + ("add_another",)
 
 
 class LocationUpdateForm(BaseLocationForm):
@@ -76,15 +76,15 @@ class BaseClothingForm(ModelForm):
     class Meta:
         model = Clothing
         fields = (
-            'description',
-            'brand',
-            'quantity',
-            'notes',
+            "description",
+            "brand",
+            "quantity",
+            "notes",
         )
         widgets = {
-            'description': TextInput(
+            "description": TextInput(
                 attrs={
-                    'autofocus': True
+                    "autofocus": True
                 })
         }
 
@@ -94,7 +94,7 @@ class ClothingAddForm(BaseClothingForm):
 
     class Meta:
         model = Clothing
-        fields = BaseClothingForm.Meta.fields + ('add_another',)
+        fields = BaseClothingForm.Meta.fields + ("add_another",)
 
 
 class ClothingUpdateForm(BaseClothingForm):

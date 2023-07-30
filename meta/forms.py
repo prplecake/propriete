@@ -7,14 +7,14 @@ class OwnerInfoForm(ModelForm):
     class Meta:
         model = OwnerInfo
         fields = (
-            'name',
-            'address',
-            'phone',
+            "name",
+            "address",
+            "phone",
         )
         widgets = {
-            'name': TextInput(
+            "name": TextInput(
                 attrs={
-                    'autofocus': True
+                    "autofocus": True
                 })
         }
 
@@ -23,17 +23,17 @@ class PolicyInfoForm(ModelForm):
     class Meta:
         model = PolicyInfo
         fields = (
-            'policy_number',
-            'agent_name',
-            'agent_phone',
-            'agent_email',
-            'company_name',
-            'company_claims_phone',
-            'company_website',
+            "policy_number",
+            "agent_name",
+            "agent_phone",
+            "agent_email",
+            "company_name",
+            "company_claims_phone",
+            "company_website",
         )
         widgets = {
-            'policy_number': TextInput(
+            "policy_number": TextInput(
                 attrs={
-                    'autofocus': True
+                    "autofocus": True
                 })
         }
