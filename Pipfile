@@ -11,6 +11,7 @@ django-phone-field = "*"
 [dev-packages]
 flake8 = "*"
 pytest = "*"
+flake8-quotes = "*"
 
 [requires]
 python_version = "3.9"
